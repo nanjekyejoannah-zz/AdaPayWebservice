@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:BankPaymentService" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:BankPaymentService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:BankPaymentService">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="authenticateRequest">
+    <wsdl:part name="ap_key" type="xsd:string" />
+    <wsdl:part name="api_username" type="xsd:string" />
+    <wsdl:part name="api_password" type="xsd:string" />
+    <wsdl:part name="hash" type="xsd:string" />
+    <wsdl:part name="backref" type="xsd:anyType" />
+  </wsdl:message>
+  <wsdl:message name="authenticateResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="verifyReferenceRequest">
+    <wsdl:part name="session_key" type="xsd:string" />
+    <wsdl:part name="reference" type="xsd:string" />
+    <wsdl:part name="hash" type="xsd:string" />
+    <wsdl:part name="backref" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="verifyReferenceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getMarketsRequest">
+    <wsdl:part name="session_key" type="xsd:string" />
+    <wsdl:part name="hash" type="xsd:string" />
+    <wsdl:part name="backref" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getMarketsResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getBusinessTypeRequest">
+    <wsdl:part name="session_key" type="xsd:string" />
+    <wsdl:part name="hash" type="xsd:string" />
+    <wsdl:part name="backref" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getBusinessTypeResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getBusinessItemRequest">
+    <wsdl:part name="session_key" type="xsd:string" />
+    <wsdl:part name="business_type_id" type="xsd:string" />
+    <wsdl:part name="hash" type="xsd:string" />
+    <wsdl:part name="backref" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getBusinessItemResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="generatePrnRequest">
+    <wsdl:part name="session_key" type="xsd:string" />
+    <wsdl:part name="vendor_name" type="xsd:string" />
+    <wsdl:part name="tel_contact" type="xsd:string" />
+    <wsdl:part name="market" type="xsd:string" />
+    <wsdl:part name="items" type="xsd:string" />
+    <wsdl:part name="amount" type="xsd:string" />
+    <wsdl:part name="hash" type="xsd:string" />
+    <wsdl:part name="backref" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="generatePrnResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="transactRequest">
+    <wsdl:part name="session_key" type="xsd:string" />
+    <wsdl:part name="reference" type="xsd:string" />
+    <wsdl:part name="transaction" type="xsd:anyType" />
+    <wsdl:part name="hash" type="xsd:string" />
+    <wsdl:part name="backref" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="transactResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="closeTransactionRequest">
+    <wsdl:part name="session_key" type="xsd:string" />
+    <wsdl:part name="reference" type="xsd:string" />
+    <wsdl:part name="transaction_id" type="xsd:anyType" />
+    <wsdl:part name="hash" type="xsd:string" />
+    <wsdl:part name="backref" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="closeTransactionResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="eodReportRequest">
+    <wsdl:part name="session_key" type="xsd:string" />
+    <wsdl:part name="content" type="xsd:string" />
+    <wsdl:part name="backref" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="eodReportResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="updateRequest">
+    <wsdl:part name="session_key" type="xsd:string" />
+    <wsdl:part name="prn" type="xsd:string" />
+    <wsdl:part name="cheque_number" type="xsd:anyType" />
+    <wsdl:part name="status" type="xsd:anyType" />
+    <wsdl:part name="reason" type="xsd:anyType" />
+    <wsdl:part name="hash" type="xsd:string" />
+    <wsdl:part name="backref" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="updateResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="BankPaymentServicePortType">
+    <wsdl:operation name="authenticate">
+      <documentation>Validate a user by supplied password, returns session key</documentation>
+      <wsdl:input message="tns:authenticateRequest" />
+      <wsdl:output message="tns:authenticateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="verifyReference">
+      <documentation>The operation is meant to be used for verifying a payment reference which a customer wish to pay</documentation>
+      <wsdl:input message="tns:verifyReferenceRequest" />
+      <wsdl:output message="tns:verifyReferenceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMarkets">
+      <documentation>The operation is meant to be used for searching the available market which the customer wish to pay for</documentation>
+      <wsdl:input message="tns:getMarketsRequest" />
+      <wsdl:output message="tns:getMarketsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getBusinessType">
+      <documentation>The operation is meant to be used for searching the available business types for market dues which the customer wish to pay for</documentation>
+      <wsdl:input message="tns:getBusinessTypeRequest" />
+      <wsdl:output message="tns:getBusinessTypeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getBusinessItem">
+      <documentation>The operation is meant to be used for searching the available business types for market dues which the customer wish to pay for</documentation>
+      <wsdl:input message="tns:getBusinessItemRequest" />
+      <wsdl:output message="tns:getBusinessItemResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="generatePrn">
+      <documentation>The operation is meant to be used for searching the available business types for market dues which the customer wish to pay for</documentation>
+      <wsdl:input message="tns:generatePrnRequest" />
+      <wsdl:output message="tns:generatePrnResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="transact">
+      <documentation>The operation is meant to be used for sending transaction that has been done on the banking side following the verifyReference operation</documentation>
+      <wsdl:input message="tns:transactRequest" />
+      <wsdl:output message="tns:transactResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="closeTransaction">
+      <documentation>The operation is meant to be used for finalizing a transaction with the details of transaction from bank or payment.</documentation>
+      <wsdl:input message="tns:closeTransactionRequest" />
+      <wsdl:output message="tns:closeTransactionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="eodReport">
+      <documentation>The operation is meant to be used for sending all transaction that has been processed throughout the day back to the Payment service for reconciliation.</documentation>
+      <wsdl:input message="tns:eodReportRequest" />
+      <wsdl:output message="tns:eodReportResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <documentation>The operation is meant to be used for sending transaction updates in previous cheque transacton and it follows the authenticate operation</documentation>
+      <wsdl:input message="tns:updateRequest" />
+      <wsdl:output message="tns:updateResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BankPaymentServiceBinding" type="tns:BankPaymentServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="authenticate">
+      <soap:operation soapAction="urn:BankPaymentService#authenticate" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyReference">
+      <soap:operation soapAction="urn:BankPaymentService#verifyReference" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMarkets">
+      <soap:operation soapAction="urn:BankPaymentService#getMarkets" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBusinessType">
+      <soap:operation soapAction="urn:BankPaymentService#getBusinessType" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBusinessItem">
+      <soap:operation soapAction="urn:BankPaymentService#getBusinessItem" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generatePrn">
+      <soap:operation soapAction="urn:BankPaymentService#generatePrn" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transact">
+      <soap:operation soapAction="urn:BankPaymentService#transact" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="closeTransaction">
+      <soap:operation soapAction="urn:BankPaymentService#closeTransaction" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eodReport">
+      <soap:operation soapAction="urn:BankPaymentService#eodReport" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <soap:operation soapAction="urn:BankPaymentService#update" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:BankPaymentService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BankPaymentService">
+    <wsdl:port name="BankPaymentServicePort" binding="tns:BankPaymentServiceBinding">
+      <soap:address location="https://ecitie.kcca.go.ug/api/bank-paymentv1.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

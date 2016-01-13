@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AdaPayInterface.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="OrientFCDBService_URAInterface_UraPmtService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://196.0.18.166/UraBnkPmtService/URAPayment.asmx</Value>
+    </Setting>
+    <Setting Name="OrientFCDBService_NSSFGateway_NSSFWSDL" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://192.168.192.124:443/ecolSOAPServer/index.php</Value>
+    </Setting>
+    <Setting Name="AdaPayInterface_KCCAGateway_BankPaymentService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://ecitie.kcca.go.ug/api/bank-paymentv1.php</Value>
+    </Setting>
+    <Setting Name="AdaPayInterface_UMEMEGateway_EPayment" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://41.84.196.234:8098/umemebillinterface/EPayment.asmx</Value>
+    </Setting>
+    <Setting Name="AdaPayInterface_NWSCGateway_NWSCBillingInterface" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://mail.nwsc.co.ug/nwscbillinginterface/nwscbillinginterface.asmx</Value>
+    </Setting>
+    <Setting Name="OrientFCDBService_NWSCInterface_NWSCBillingInterface" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://mail.nwsc.co.ug/nwscbillinginterface/nwscbillinginterface.asmx?wsdl</Value>
+    </Setting>
+    <Setting Name="OrientFCDBService_UMEMEGateway_EPayment" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://41.84.196.234:8098/umemebillinterface/EPayment.asmx?wsdl</Value>
+    </Setting>
+    <Setting Name="OrientFCDBService_KCCAGateway_BankPaymentService" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://ecitie.kcca.go.ug/api/bank-paymentv1.php?wsdl</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

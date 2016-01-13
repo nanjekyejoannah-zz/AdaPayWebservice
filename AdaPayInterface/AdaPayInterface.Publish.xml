@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\Inetpub\wwwroot\FCDB123" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="FCDB" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="10/02/2014 11:21:00" />
+    <file relUrl="FinInterface.asmx" publishTime="10/02/2014 11:30:00" />
+    <file relUrl="Scripts/jquery-1.4.1-vsdoc.js" publishTime="10/02/2014 11:21:00" />
+    <file relUrl="bin/FinpayiAdmin.dll" publishTime="01/05/2011 11:56:00" />
+    <file relUrl="Scripts/jquery-1.4.1.js" publishTime="10/02/2014 11:21:00" />
+    <file relUrl="Web.config" publishTime="07/14/2015 15:41:09" />
+    <file relUrl="bin/eTaxPmtLibrary.dll" publishTime="09/09/2011 14:34:00" />
+    <file relUrl="bin/OrientFCDBService.pdb" publishTime="07/14/2015 15:35:44" />
+    <file relUrl="bin/OrientFCDBService.dll" publishTime="07/14/2015 15:35:44" />
+  </publishProfile>
+</publishData>

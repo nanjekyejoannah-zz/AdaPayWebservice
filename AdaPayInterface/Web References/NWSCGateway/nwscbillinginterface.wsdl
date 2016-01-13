@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://NWSCBillingInterface/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://NWSCBillingInterface/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://NWSCBillingInterface/">
+      <s:element name="verifyCustomerDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="custref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifyCustomerDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCustomerDetailsResult" type="tns:Customer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Customer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CustRef" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropertyRef" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OutstandingBal" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerError" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="verifyCustomerDetailsWithArea">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="custref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="area" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifyCustomerDetailsWithAreaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="verifyCustomerDetailsWithAreaResult" type="tns:Customer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="postCustomerTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="custref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="custName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerTel" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="transactionAmount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorTransactionRef" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transactionType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="postCustomerTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postCustomerTransactionsResult" type="tns:PostResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PostResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Successful" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostError" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="postCustomerTransactionsWithArea">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="custref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="custName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="area" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerTel" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="transactionAmount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorTransactionRef" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transactionType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="postCustomerTransactionsWithAreaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postCustomerTransactionsWithAreaResult" type="tns:PostResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="postChequeTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="custref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="custName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="area" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerTel" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="transactionAmount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorTransactionRef" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="chequeNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="narrative" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="postChequeTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postChequeTransactionsResult" type="tns:PostResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="postEftTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="custref" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="custName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="transactionAmount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorTransactionRef" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="narrative" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="postEftTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postEftTransactionsResult" type="tns:PostResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkPrepaidFloatBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkPrepaidFloatBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="checkPrepaidFloatBalanceResult" type="tns:Customer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="verifyCustomerDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:verifyCustomerDetails" />
+  </wsdl:message>
+  <wsdl:message name="verifyCustomerDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:verifyCustomerDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="verifyCustomerDetailsWithAreaSoapIn">
+    <wsdl:part name="parameters" element="tns:verifyCustomerDetailsWithArea" />
+  </wsdl:message>
+  <wsdl:message name="verifyCustomerDetailsWithAreaSoapOut">
+    <wsdl:part name="parameters" element="tns:verifyCustomerDetailsWithAreaResponse" />
+  </wsdl:message>
+  <wsdl:message name="postCustomerTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:postCustomerTransactions" />
+  </wsdl:message>
+  <wsdl:message name="postCustomerTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:postCustomerTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="postCustomerTransactionsWithAreaSoapIn">
+    <wsdl:part name="parameters" element="tns:postCustomerTransactionsWithArea" />
+  </wsdl:message>
+  <wsdl:message name="postCustomerTransactionsWithAreaSoapOut">
+    <wsdl:part name="parameters" element="tns:postCustomerTransactionsWithAreaResponse" />
+  </wsdl:message>
+  <wsdl:message name="postChequeTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:postChequeTransactions" />
+  </wsdl:message>
+  <wsdl:message name="postChequeTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:postChequeTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="postEftTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:postEftTransactions" />
+  </wsdl:message>
+  <wsdl:message name="postEftTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:postEftTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkPrepaidFloatBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:checkPrepaidFloatBalance" />
+  </wsdl:message>
+  <wsdl:message name="checkPrepaidFloatBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:checkPrepaidFloatBalanceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="NWSCBillingInterfaceSoap">
+    <wsdl:operation name="verifyCustomerDetails">
+      <wsdl:input message="tns:verifyCustomerDetailsSoapIn" />
+      <wsdl:output message="tns:verifyCustomerDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verifyCustomerDetailsWithArea">
+      <wsdl:input message="tns:verifyCustomerDetailsWithAreaSoapIn" />
+      <wsdl:output message="tns:verifyCustomerDetailsWithAreaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="postCustomerTransactions">
+      <wsdl:input message="tns:postCustomerTransactionsSoapIn" />
+      <wsdl:output message="tns:postCustomerTransactionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="postCustomerTransactionsWithArea">
+      <wsdl:input message="tns:postCustomerTransactionsWithAreaSoapIn" />
+      <wsdl:output message="tns:postCustomerTransactionsWithAreaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="postChequeTransactions">
+      <wsdl:input message="tns:postChequeTransactionsSoapIn" />
+      <wsdl:output message="tns:postChequeTransactionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="postEftTransactions">
+      <wsdl:input message="tns:postEftTransactionsSoapIn" />
+      <wsdl:output message="tns:postEftTransactionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkPrepaidFloatBalance">
+      <wsdl:input message="tns:checkPrepaidFloatBalanceSoapIn" />
+      <wsdl:output message="tns:checkPrepaidFloatBalanceSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NWSCBillingInterfaceSoap" type="tns:NWSCBillingInterfaceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="verifyCustomerDetails">
+      <soap:operation soapAction="http://NWSCBillingInterface/verifyCustomerDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyCustomerDetailsWithArea">
+      <soap:operation soapAction="http://NWSCBillingInterface/verifyCustomerDetailsWithArea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postCustomerTransactions">
+      <soap:operation soapAction="http://NWSCBillingInterface/postCustomerTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postCustomerTransactionsWithArea">
+      <soap:operation soapAction="http://NWSCBillingInterface/postCustomerTransactionsWithArea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postChequeTransactions">
+      <soap:operation soapAction="http://NWSCBillingInterface/postChequeTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postEftTransactions">
+      <soap:operation soapAction="http://NWSCBillingInterface/postEftTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkPrepaidFloatBalance">
+      <soap:operation soapAction="http://NWSCBillingInterface/checkPrepaidFloatBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NWSCBillingInterfaceSoap12" type="tns:NWSCBillingInterfaceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="verifyCustomerDetails">
+      <soap12:operation soapAction="http://NWSCBillingInterface/verifyCustomerDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyCustomerDetailsWithArea">
+      <soap12:operation soapAction="http://NWSCBillingInterface/verifyCustomerDetailsWithArea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postCustomerTransactions">
+      <soap12:operation soapAction="http://NWSCBillingInterface/postCustomerTransactions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postCustomerTransactionsWithArea">
+      <soap12:operation soapAction="http://NWSCBillingInterface/postCustomerTransactionsWithArea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postChequeTransactions">
+      <soap12:operation soapAction="http://NWSCBillingInterface/postChequeTransactions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postEftTransactions">
+      <soap12:operation soapAction="http://NWSCBillingInterface/postEftTransactions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkPrepaidFloatBalance">
+      <soap12:operation soapAction="http://NWSCBillingInterface/checkPrepaidFloatBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NWSCBillingInterface">
+    <wsdl:port name="NWSCBillingInterfaceSoap" binding="tns:NWSCBillingInterfaceSoap">
+      <soap:address location="https://mail.nwsc.co.ug/nwscbillinginterface/nwscbillinginterface.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NWSCBillingInterfaceSoap12" binding="tns:NWSCBillingInterfaceSoap12">
+      <soap12:address location="https://mail.nwsc.co.ug/nwscbillinginterface/nwscbillinginterface.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

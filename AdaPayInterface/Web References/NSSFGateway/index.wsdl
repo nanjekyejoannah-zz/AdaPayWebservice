@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:NSSFWSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:NSSFWSDL" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:NSSFWSDL">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="Cheque">
+        <xsd:all>
+          <xsd:element name="number" type="xsd:string" />
+          <xsd:element name="amount" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ChequeArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:Cheque[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="TransactionDetails">
+        <xsd:all>
+          <xsd:element name="error_code" type="xsd:int" />
+          <xsd:element name="error_message" type="xsd:string" />
+          <xsd:element name="reference" type="xsd:string" />
+          <xsd:element name="upl_datetime" type="xsd:string" />
+          <xsd:element name="employer_no" type="xsd:string" />
+          <xsd:element name="employer" type="xsd:string" />
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="type" type="xsd:string" />
+          <xsd:element name="payment_method" type="xsd:string" />
+          <xsd:element name="period" type="xsd:string" />
+          <xsd:element name="total" type="xsd:string" />
+          <xsd:element name="allchqs" type="xsd:string" />
+          <xsd:element name="signature" type="xsd:string" />
+          <xsd:element name="timestamp" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="StatusDetails">
+        <xsd:all>
+          <xsd:element name="error_code" type="xsd:int" />
+          <xsd:element name="error_message" type="xsd:string" />
+          <xsd:element name="reference" type="xsd:string" />
+          <xsd:element name="status" type="xsd:int" />
+          <xsd:element name="signature" type="xsd:string" />
+          <xsd:element name="timestamp" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="TestStatusDetails">
+        <xsd:all>
+          <xsd:element name="error_code" type="xsd:int" />
+          <xsd:element name="error_message" type="xsd:string" />
+          <xsd:element name="signature" type="xsd:string" />
+          <xsd:element name="timestamp" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getTransactionRequest">
+    <wsdl:part name="api_key" type="xsd:string" />
+    <wsdl:part name="signature" type="xsd:string" />
+    <wsdl:part name="transaction_number" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getTransactionResponse">
+    <wsdl:part name="return" type="tns:TransactionDetails" />
+  </wsdl:message>
+  <wsdl:message name="setStatusRequest">
+    <wsdl:part name="api_key" type="xsd:string" />
+    <wsdl:part name="signature" type="xsd:string" />
+    <wsdl:part name="transaction_number" type="xsd:string" />
+    <wsdl:part name="status" type="xsd:int" />
+    <wsdl:part name="comment" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="setStatusResponse">
+    <wsdl:part name="return" type="tns:StatusDetails" />
+  </wsdl:message>
+  <wsdl:message name="checkStatusRequest">
+    <wsdl:part name="api_key" type="xsd:string" />
+    <wsdl:part name="signature" type="xsd:string" />
+    <wsdl:part name="test" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="checkStatusResponse">
+    <wsdl:part name="return" type="tns:TestStatusDetails" />
+  </wsdl:message>
+  <wsdl:portType name="NSSFWSDLPortType">
+    <wsdl:operation name="getTransaction">
+      <documentation>Fetch transaction details.</documentation>
+      <wsdl:input message="tns:getTransactionRequest" />
+      <wsdl:output message="tns:getTransactionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setStatus">
+      <documentation>Set transaction status.</documentation>
+      <wsdl:input message="tns:setStatusRequest" />
+      <wsdl:output message="tns:setStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="checkStatus">
+      <documentation>Test server status.</documentation>
+      <wsdl:input message="tns:checkStatusRequest" />
+      <wsdl:output message="tns:checkStatusResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NSSFWSDLBinding" type="tns:NSSFWSDLPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getTransaction">
+      <soap:operation soapAction="urn:NSSFWSDL#getTransaction" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:NSSFWSDL" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:NSSFWSDL" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setStatus">
+      <soap:operation soapAction="urn:NSSFWSDL#setStatus" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:NSSFWSDL" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:NSSFWSDL" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkStatus">
+      <soap:operation soapAction="urn:NSSFWSDL#checkStatus" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:NSSFWSDL" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:NSSFWSDL" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NSSFWSDL">
+    <wsdl:port name="NSSFWSDLPort" binding="tns:NSSFWSDLBinding">
+      <soap:address location="https://192.168.192.124:443/ecolSOAPServer/index.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

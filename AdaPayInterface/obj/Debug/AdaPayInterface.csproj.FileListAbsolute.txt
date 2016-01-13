@@ -1,0 +1,10 @@
+E:\AdaTrait\Projects\AdaPay\AdaPayInterface\AdaPayInterface\bin\AdaPayInterface.dll
+E:\AdaTrait\Projects\AdaPay\AdaPayInterface\AdaPayInterface\bin\AdaPayInterface.pdb
+E:\AdaTrait\Projects\AdaPay\AdaPayInterface\AdaPayInterface\obj\Debug\AdaPayInterface.dll
+E:\AdaTrait\Projects\AdaPay\AdaPayInterface\AdaPayInterface\obj\Debug\AdaPayInterface.pdb
+E:\AdaTrait\Projects\AdaPay\AdaPayInterface\AdaPayInterface\obj\Debug\AdaPayInterface.csprojResolveAssemblyReference.cache
+E:\CBackup\AdaTrait\Projects\AdaPay\BackUp\AdaPayInterface\AdaPayInterface\obj\Debug\AdaPayInterface.csprojResolveAssemblyReference.cache
+E:\CBackup\AdaTrait\Projects\AdaPay\BackUp\AdaPayInterface\AdaPayInterface\obj\Debug\AdaPayInterface.dll
+E:\CBackup\AdaTrait\Projects\AdaPay\BackUp\AdaPayInterface\AdaPayInterface\bin\AdaPayInterface.dll
+E:\CBackup\AdaTrait\Projects\AdaPay\BackUp\AdaPayInterface\AdaPayInterface\bin\AdaPayInterface.pdb
+E:\CBackup\AdaTrait\Projects\AdaPay\BackUp\AdaPayInterface\AdaPayInterface\obj\Debug\AdaPayInterface.pdb

@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ura.go.ug/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ura.go.ug/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ura.go.ug/">
+      <s:element name="NotifyUraPayment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transEntityArr" type="tns:ArrayOfTransactionEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTransactionEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionEntity" nillable="true" type="tns:TransactionEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransactionEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Bank_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Paid_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Bank_branch_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Bank_tr_no" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Chq_no" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Signature" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NotifyUraPaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NotifyUraPaymentResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NotifyUraPaymentJava">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transEntityArr" type="tns:ArrayOfTransactionEntity" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NotifyUraPaymentJavaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NotifyUraPaymentJavaResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPRNDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bank_cd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPRNDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPRNDetailsResult" type="tns:PaymentRegEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PaymentRegEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Prn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxpayerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentRegDt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpiryDt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsSentToBank" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccessMsg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NotifyBouTransfer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bouEntity" type="tns:BouEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BouEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Bank_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Bou_value_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Coll_value_dt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Source_acc_no" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Err_cd_out" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Err_desc_out" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NotifyBouTransferResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NotifyBouTransferResult" type="tns:BouEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NotifyEndOfDayFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlurl" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NotifyEndOfDayFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NotifyEndOfDayFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NotifyEndOfDayEntity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eodFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eodEntityArr" type="tns:ArrayOfTransactionEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NotifyEndOfDayEntityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NotifyEndOfDayEntityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NotifyEBankStmt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlurl" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NotifyEBankStmtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NotifyEBankStmtResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="NotifyUraPaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:NotifyUraPayment" />
+  </wsdl:message>
+  <wsdl:message name="NotifyUraPaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:NotifyUraPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="NotifyUraPaymentJavaSoapIn">
+    <wsdl:part name="parameters" element="tns:NotifyUraPaymentJava" />
+  </wsdl:message>
+  <wsdl:message name="NotifyUraPaymentJavaSoapOut">
+    <wsdl:part name="parameters" element="tns:NotifyUraPaymentJavaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPRNDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPRNDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetPRNDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPRNDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="NotifyBouTransferSoapIn">
+    <wsdl:part name="parameters" element="tns:NotifyBouTransfer" />
+  </wsdl:message>
+  <wsdl:message name="NotifyBouTransferSoapOut">
+    <wsdl:part name="parameters" element="tns:NotifyBouTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="NotifyEndOfDayFileSoapIn">
+    <wsdl:part name="parameters" element="tns:NotifyEndOfDayFile" />
+  </wsdl:message>
+  <wsdl:message name="NotifyEndOfDayFileSoapOut">
+    <wsdl:part name="parameters" element="tns:NotifyEndOfDayFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="NotifyEndOfDayEntitySoapIn">
+    <wsdl:part name="parameters" element="tns:NotifyEndOfDayEntity" />
+  </wsdl:message>
+  <wsdl:message name="NotifyEndOfDayEntitySoapOut">
+    <wsdl:part name="parameters" element="tns:NotifyEndOfDayEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="NotifyEBankStmtSoapIn">
+    <wsdl:part name="parameters" element="tns:NotifyEBankStmt" />
+  </wsdl:message>
+  <wsdl:message name="NotifyEBankStmtSoapOut">
+    <wsdl:part name="parameters" element="tns:NotifyEBankStmtResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UraPmtServiceSoap">
+    <wsdl:operation name="NotifyUraPayment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">NotifyUraPayment for .NET clients</wsdl:documentation>
+      <wsdl:input message="tns:NotifyUraPaymentSoapIn" />
+      <wsdl:output message="tns:NotifyUraPaymentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyUraPaymentJava">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">NotifyUraPayment for Java clients</wsdl:documentation>
+      <wsdl:input message="tns:NotifyUraPaymentJavaSoapIn" />
+      <wsdl:output message="tns:NotifyUraPaymentJavaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPRNDetails">
+      <wsdl:input message="tns:GetPRNDetailsSoapIn" />
+      <wsdl:output message="tns:GetPRNDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyBouTransfer">
+      <wsdl:input message="tns:NotifyBouTransferSoapIn" />
+      <wsdl:output message="tns:NotifyBouTransferSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyEndOfDayFile">
+      <wsdl:input message="tns:NotifyEndOfDayFileSoapIn" />
+      <wsdl:output message="tns:NotifyEndOfDayFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyEndOfDayEntity">
+      <wsdl:input message="tns:NotifyEndOfDayEntitySoapIn" />
+      <wsdl:output message="tns:NotifyEndOfDayEntitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyEBankStmt">
+      <wsdl:input message="tns:NotifyEBankStmtSoapIn" />
+      <wsdl:output message="tns:NotifyEBankStmtSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UraPmtServiceSoap" type="tns:UraPmtServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="NotifyUraPayment">
+      <soap:operation soapAction="http://ura.go.ug/NotifyUraPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyUraPaymentJava">
+      <soap:operation soapAction="http://ura.go.ug/NotifyUraPaymentJava" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPRNDetails">
+      <soap:operation soapAction="http://ura.go.ug/GetPRNDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyBouTransfer">
+      <soap:operation soapAction="http://ura.go.ug/NotifyBouTransfer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyEndOfDayFile">
+      <soap:operation soapAction="http://ura.go.ug/NotifyEndOfDayFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyEndOfDayEntity">
+      <soap:operation soapAction="http://ura.go.ug/NotifyEndOfDayEntity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyEBankStmt">
+      <soap:operation soapAction="http://ura.go.ug/NotifyEBankStmt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UraPmtServiceSoap12" type="tns:UraPmtServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="NotifyUraPayment">
+      <soap12:operation soapAction="http://ura.go.ug/NotifyUraPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyUraPaymentJava">
+      <soap12:operation soapAction="http://ura.go.ug/NotifyUraPaymentJava" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPRNDetails">
+      <soap12:operation soapAction="http://ura.go.ug/GetPRNDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyBouTransfer">
+      <soap12:operation soapAction="http://ura.go.ug/NotifyBouTransfer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyEndOfDayFile">
+      <soap12:operation soapAction="http://ura.go.ug/NotifyEndOfDayFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyEndOfDayEntity">
+      <soap12:operation soapAction="http://ura.go.ug/NotifyEndOfDayEntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyEBankStmt">
+      <soap12:operation soapAction="http://ura.go.ug/NotifyEBankStmt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UraPmtService">
+    <wsdl:port name="UraPmtServiceSoap" binding="tns:UraPmtServiceSoap">
+      <soap:address location="http://196.0.18.166/UraBnkPmtService/URAPayment.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UraPmtServiceSoap12" binding="tns:UraPmtServiceSoap12">
+      <soap12:address location="http://196.0.18.166/UraBnkPmtService/URAPayment.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
